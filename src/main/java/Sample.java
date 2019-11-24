@@ -18,7 +18,7 @@ public class Sample {
     }
 
 
-    public static  boolean isPrime(int n){
+    private static  boolean isPrime(int n){
        /* boolean result = true;
         for (int i = 2; i < n; i++) {
             if (n % i == 0) {
