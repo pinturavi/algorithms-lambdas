@@ -1,7 +1,11 @@
 package com.pintu;
 
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.mapping;
+import static java.util.stream.Collectors.toList;
 
 public class Paritioning {
     public static void main(String[] args) {
@@ -10,7 +14,7 @@ public class Paritioning {
         final var persons = persons1.stream().
                collect(Collectors.partitioningBy(p -> p.getAge() % 2 ==0));
         System.out.println(persons);
-        System.out.println(persons1.stream().collect(Collectors.groupingBy(e -> e.getName())));
+        System.out.println(persons1.stream().collect(Collectors.groupingBy(Person::getName, mapping(Person::getAge, toList()))));
     }
 
     private static List<Person> getPersons() {
